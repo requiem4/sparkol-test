@@ -1,0 +1,3 @@
+[submodule "server"]
+	path = server
+	url = ../../dantame/interview-authentication-service.git
