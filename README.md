@@ -12,3 +12,18 @@
     Go to http://localhost:3000/
     </li>
 </ul>
+
+<h3>Setup server</h3>
+
+<ul>
+    <li>
+    Check https://github.com/dantame/interview-authentication-service
+    </li>
+    <li>
+    cd server && npm install
+    </li>
+    <li>
+    npm start
+    </li>
+    
+</ul>
