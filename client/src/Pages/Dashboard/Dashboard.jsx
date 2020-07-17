@@ -20,6 +20,7 @@ export default function Dashboard(props) {
             spacing={6}
             alignItems="center"
             justify="center"
+            className={classes.centerBlock}
           >
             <Grid item >
              <div>

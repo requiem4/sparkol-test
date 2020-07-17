@@ -9,4 +9,8 @@ export default makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  centerBlock: {
+    flexDirection: 'column',
+    marginTop: '15%'
+  }
 }));
