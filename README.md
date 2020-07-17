@@ -20,6 +20,12 @@
     Check https://github.com/dantame/interview-authentication-service
     </li>
     <li>
+    git submodule init
+    </li>
+    <li>
+    git submodule update
+    </li>
+    <li>
     cd server && npm install
     </li>
     <li>
