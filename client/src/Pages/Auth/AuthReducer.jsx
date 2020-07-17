@@ -1,16 +1,8 @@
 import * as ACTION_TYPES from '../../Configs/ActionTypes'
-import {parseJwt} from "./AuthHelpers";
+import {getUserFromJwt} from "./AuthHelpers";
 
-let user = {
-  id: 0,
-  username: ''
-}
-const token = localStorage.getItem('token')
-if (token) {
-  const jwtInfo = parseJwt(token);
-  user = jwtInfo.user ? jwtInfo.user : {}
-}
 
+const user = getUserFromJwt()
 const initialState = {
   user: user,
   isAuthenticated: user.id ? !!localStorage.getItem("token") : false,
@@ -22,6 +14,7 @@ const AuthReducer = (state = initialState, action) => {
     case ACTION_TYPES.LOGIN_SUCCESS:
       return {
         ...state,
+        user: getUserFromJwt(),
         isAuthenticated: true
       }
     case ACTION_TYPES.LOGIN_FAILURE:

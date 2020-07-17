@@ -17,3 +17,16 @@ export function parseJwt(token) {
     return false;
   }
 }
+
+export function getUserFromJwt() {
+  let user = {
+    id: 0,
+    username: ''
+  }
+  const token = localStorage.getItem('token')
+  if (token) {
+    const jwtInfo = parseJwt(token);
+    user = jwtInfo.user ? jwtInfo.user : {}
+  }
+  return user
+}

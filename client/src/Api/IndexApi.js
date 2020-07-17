@@ -10,14 +10,14 @@ const axiosInstance = axios.create({
     'Content-Type': 'application/json',
   }
 });
-axiosInstance.interceptors.response.use(function (response) {
+/*axiosInstance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
- /* if (401 === error.response.status) {
+  if (401 === error.response.status) {
     localStorage.clear();
     window.location = '/';
   } else {
     return Promise.reject(error);
-  }*/
-});
+  }
+});*/
 export default axiosInstance

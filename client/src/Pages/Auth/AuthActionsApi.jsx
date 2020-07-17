@@ -6,17 +6,17 @@ export async function loginUser(dispatch, username, password, history, setIsLoad
   setIsLoading(true);
   if (!!username && !!password) {
     dispatch({type: ACTION_TYPES.LOGIN})
-    AuthApi.login(username, password).then( (response) => {
-      if (response && response.data && response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        setError(null);
-        setIsLoading(false);
-        dispatch({type: ACTION_TYPES.LOGIN_SUCCESS});
-      } else {
-        setError(true);
-        setIsLoading(false);
-      }
-    })
+    let response = await AuthApi.login(username, password)
+    if (response && response.data && response.data.token) {
+      localStorage.setItem("token", response.data.token);
+      setError(null);
+      setIsLoading(false);
+      dispatch({type: ACTION_TYPES.LOGIN_SUCCESS});
+    } else {
+      localStorage.removeItem("token");
+      setError(true);
+      setIsLoading(false);
+    }
   } else {
     setError(true);
     setIsLoading(false);
@@ -24,20 +24,19 @@ export async function loginUser(dispatch, username, password, history, setIsLoad
 }
 
 export async function signOut(dispatch, history) {
-  await AuthApi.logout()
+  // await AuthApi.logout()
   dispatch({type: ACTION_TYPES.LOGOUT_SUCCESS});
   localStorage.removeItem("token");
   history.push("/login");
 }
 
 export function verifyUser() {
-  return(dispatch) => {
+  return async (dispatch) => {
     dispatch({type: ACTION_TYPES.VERIFY_USER});
-    AuthApi.verifyUser().then( (response) => {
-      if (response && response.data && response.data.user) {
-        dispatch({type: ACTION_TYPES.SET_USER, payload: response.data.user});
-      }
-    })
+    let response = await AuthApi.verifyUser()
+    if (response && response.data && response.data.user) {
+      dispatch({type: ACTION_TYPES.SET_USER, payload: response.data.user});
+    }
   }
 }
 
