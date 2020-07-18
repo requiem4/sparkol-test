@@ -14,12 +14,11 @@ axiosInstance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
   const token = localStorage.getItem('token');
-  if (error.response.status === 401 && token){
+  if (error.response.status === 401 && token) {
 
-    //localStorage.removeItem('token');
+    localStorage.removeItem('token');
     history.push('/login');
   }
-return error;
-})
-;
+  return error;
+});
 export default axiosInstance
