@@ -2,7 +2,7 @@ import React from 'react'
 import AppLayout from "../Components/Layout/AppLayout";
 import AuthPage from "../Pages/Auth/AuthPage";
 import ForgotPasswordPage from '../Pages/Auth/ForgotPasswordPage'
-
+import { createBrowserHistory } from 'history';
 import {BrowserRouter, Redirect, Route, Switch,} from "react-router-dom";
 import {useSelector} from "react-redux";
 
@@ -110,4 +110,5 @@ function Authenticate() {
   }
 }
 
+export const history = createBrowserHistory();
 export {AppProvider, Authenticate, useAppState, useAppDispatch}

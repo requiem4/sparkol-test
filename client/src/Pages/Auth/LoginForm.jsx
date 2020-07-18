@@ -77,14 +77,13 @@ function LoginForm(props) {
               loginValue.length === 0 || passwordValue.length === 0
             }
             onClick={() =>
-              loginUser(
-                dispatch,
+              dispatch(loginUser(
                 loginValue,
                 passwordValue,
                 props.history,
                 setIsLoading,
                 setError,
-              )
+              ))
             }
             variant="contained"
             color="primary"

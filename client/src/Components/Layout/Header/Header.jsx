@@ -27,10 +27,9 @@ export default function Header(props) {
           Hello, {user.name}
         </Typography>
         <Button color="inherit" onClick={() =>
-          signOut(
-            userDispatch,
+          userDispatch(signOut(
             props.history
-          )
+          ))
         }>
           <ExitToAppIcon/>
         </Button>
