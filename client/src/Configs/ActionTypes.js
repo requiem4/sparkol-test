@@ -16,4 +16,4 @@ export const LOGOUT_FAILURE = "LOGOUT_FAILURE"
 
 export const VERIFY_USER = "VERIFY_USER"
 
-export const SET_USER = "SET_USEr"
+export const SET_USER = "SET_USER"
