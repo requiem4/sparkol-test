@@ -26,7 +26,7 @@ export function loginUser(username, password, history, setIsLoading, setError) {
   }
 }
 
-export function signOut(dispatch, history) {
+export function signOut(history) {
   return (dispatch) => {
     // await AuthApi.logout()
     dispatch({type: ACTION_TYPES.LOGOUT_SUCCESS});
